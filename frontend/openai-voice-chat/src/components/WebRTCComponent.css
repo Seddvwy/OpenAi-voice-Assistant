@@ -1,0 +1,233 @@
+.webrtc-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f5f7fb;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Make height adapt to available space in iframe */
+    height: 100%;
+    width: 100%;
+    padding: 16px;
+    box-sizing: border-box;
+  }
+  
+  .webrtc-card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    padding: 32px;
+    width: 400px;
+    max-width: 100%;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+  
+  .webrtc-title {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 24px;
+    font-weight: 600;
+  }
+  
+  .visualizer-container {
+    position: relative;
+    background-color: #f0f4f8;
+    border-radius: 12px;
+    height: 150px;
+    margin-bottom: 24px;
+    overflow: hidden;
+  }
+  
+  .audio-visualizer {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .visualizer-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #8a9ab0;
+    font-size: 14px;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .listening-indicator {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    color: #333;
+  }
+  
+  .pulse-dot {
+    height: 8px;
+    width: 8px;
+    background-color: #4facfe;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 8px;
+    animation: pulse 1.5s infinite;
+  }
+  
+  @keyframes pulse {
+    0% {
+      opacity: 0.4;
+      transform: scale(0.8);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.2);
+    }
+    100% {
+      opacity: 0.4;
+      transform: scale(0.8);
+    }
+  }
+  
+  .connection-status {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 24px;
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .status-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 8px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .status-indicator.disconnected {
+    background-color: #ff5757;
+  }
+  
+  .status-indicator.connecting {
+    background-color: #ffbf47;
+    animation: blink 1s infinite;
+  }
+  
+  .status-indicator.connected {
+    background-color: #4caf50;
+  }
+  
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+  
+  .conversation-button {
+    padding: 12px 24px;
+    font-size: 16px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-bottom: 16px;
+    outline: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .start-button {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    color: white;
+  }
+  
+  .connecting-button {
+    background-color: #d3d3d3;
+    color: #666;
+    cursor: not-allowed;
+  }
+  
+  .pause-button {
+    background: linear-gradient(135deg, #ff9966 0%, #ff5e62 100%);
+    color: white;
+  }
+  
+  .resume-button {
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+    color: white;
+  }
+  
+  .conversation-button:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+  }
+  
+  .error-message {
+    color: #ff5757;
+    font-size: 14px;
+    padding: 12px;
+    background-color: #fff0f0;
+    border-radius: 8px;
+    margin-top: 12px;
+    text-align: left;
+    line-height: 1.5;
+    word-break: break-word;
+  }
+  
+  /* Responsive styles for smaller screens */
+  @media (max-width: 480px) {
+    .webrtc-card {
+      padding: 20px;
+    }
+    
+    .webrtc-title {
+      font-size: 22px;
+      margin-bottom: 16px;
+    }
+    
+    .visualizer-container {
+      height: 120px;
+      margin-bottom: 16px;
+    }
+    
+    .conversation-button {
+      padding: 10px 16px;
+      font-size: 14px;
+    }
+    
+    .listening-indicator {
+      font-size: 10px;
+      padding: 4px 8px;
+    }
+  }
+  
+  /* Iframe specific styles */
+  @media (max-height: 600px) {
+    .webrtc-container {
+      min-height: auto;
+      padding: 8px;
+    }
+    
+    .webrtc-card {
+      padding: 16px;
+    }
+    
+    .webrtc-title {
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+    
+    .visualizer-container {
+      height: 100px;
+    }
+  }
